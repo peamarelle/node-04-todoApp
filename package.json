@@ -1,0 +1,24 @@
+{
+  "name": "04-todoapp",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/peamarelle/node-04-todoApp.git"
+  },
+  "author": "pamarelle",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/peamarelle/node-04-todoApp/issues"
+  },
+  "homepage": "https://github.com/peamarelle/node-04-todoApp#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "inquirer": "^8.0.0",
+    "uuid": "^8.3.2"
+  }
+}
