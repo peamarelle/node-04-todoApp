@@ -1,7 +1,7 @@
 const { inquirerMenu, inquirerInput } = require('./helpers/inquirer');
 const TaskRepository = require('./repositories/taskRepository');
 
-const main = async() => {
+const main = async () => {
     let option = '';
     const taskRepository = new TaskRepository();
 
@@ -13,10 +13,15 @@ const main = async() => {
                 const title = await inquirerInput('Task tile:');
                 taskRepository.createTask(title);
                 break;
-        
+
             case 2:
                 let tasks = taskRepository.getAllTasks();
                 console.log(tasks);
+                break;
+
+            case 4:
+                const titleDelete = await inquirerInput('Task tile:');
+                taskRepository.deleteTask(titleDelete);
                 break;
         }
     } while (option !== 'X');

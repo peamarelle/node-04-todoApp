@@ -8,8 +8,8 @@ class TaskRepository {
     constructor() {
 
         const data = getData();
-        
-        if(data) {
+
+        if (data) {
             this._tasks = data;
         } else {
             this._tasks = [];
@@ -31,12 +31,13 @@ class TaskRepository {
         saveData(this._tasks);
     }
 
-    deleteTask() {
-
+    deleteTask(title) {
+        this._tasks = this._tasks.filter(task => task.title !== title);
+        saveData(this._tasks);
     }
 
     completeTask() {
-        
+
     }
 }
 
