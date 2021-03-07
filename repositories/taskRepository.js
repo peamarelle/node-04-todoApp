@@ -1,14 +1,16 @@
 const Task = require('../models/task');
-const data = require('../database/database');
+const { getData, saveData } = require('../helpers/fileManager');
 
 class TaskRepository {
 
     _tasks = null;
 
     constructor() {
-        if(data.tasks.length !== 0) {
-            console.log(data.tasks);
-            this._tasks = data.tasks;
+
+        const data = getData();
+        
+        if(data) {
+            this._tasks = data;
         } else {
             this._tasks = [];
         }
@@ -21,12 +23,12 @@ class TaskRepository {
     /**
      * 
      * @param {String} title 
-     * TODO: falta persistir los datos en un archivo
      */
 
     createTask(title) {
         const task = new Task(title);
         this._tasks.push(task);
+        saveData(this._tasks);
     }
 
     deleteTask() {

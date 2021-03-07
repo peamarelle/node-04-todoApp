@@ -24,7 +24,7 @@ const inquirerMenu = async () => {
                 },
                 {
                     value: 'X',
-                    name: `${'X-'.blue} Salir`
+                    name: `${'0-'.blue} Salir`
                 },
             ]
         }
