@@ -17,7 +17,7 @@ class TaskRepository {
     }
 
     getAllTasks() {
-        return this._tasks;
+        return this._tasks.map(task => { return { title: task.title, done: task.done, finished: task.finished } });
     }
 
     /**
