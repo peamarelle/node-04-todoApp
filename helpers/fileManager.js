@@ -19,10 +19,6 @@ const getData = () => {
 
 const saveData = (data) => {
 
-    if(!fs.existsSync(name)) {
-        fs.mkdirSync('./database/');
-    }
-
     fs.writeFileSync(name, JSON.stringify(data));
 }
 
