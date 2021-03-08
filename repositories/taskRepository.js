@@ -33,20 +33,14 @@ class TaskRepository {
 
   deleteTask() {}
 
-  getTaskTitle() {
-    return this._tasks.map((task) => {
-      return { title: task.title };
-    });
-  }
-
   completeTask(title) {
-    let editTask = this._tasks.map((task) => {
+    this._tasks.map((task) => {
       if (task.title === title) {
         task.done = true;
         task.finished = new Date();
       }
     });
-    saveData(editTask);
+    saveData([this._tasks]);
   }
 }
 
