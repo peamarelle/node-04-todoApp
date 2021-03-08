@@ -1,6 +1,5 @@
 const inquirer = require("inquirer");
 const colors = require("colors");
-const Choices = require("inquirer/lib/objects/choices");
 
 const inquirerMenu = async () => {
   console.log("===============================".blue);
