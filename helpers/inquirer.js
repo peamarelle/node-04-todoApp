@@ -55,7 +55,27 @@ const inquirerInput = async (message) => {
   return description;
 };
 
+const inquirerSubMenu = async (choices, action) => {
+  console.log("===============================".blue);
+  console.log("Select a task".white);
+  console.log("===============================".blue);
+
+  const menu = [
+    {
+      type: "list",
+      name: "option",
+      message: `Select task to ${action}`,
+      choices
+    },
+  ];
+
+  const { option } = await inquirer.prompt(menu);
+
+  return option;
+};
+
 module.exports = {
   inquirerMenu,
   inquirerInput,
+  inquirerSubMenu
 };

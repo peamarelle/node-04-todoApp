@@ -29,8 +29,8 @@ class TaskRepository {
     saveData(this._tasks);
   }
 
-  deleteTask(title) {
-    this._tasks = this._tasks.filter((task) => task.title !== title);
+  deleteTask(id) {
+    this._tasks = this._tasks.filter((task) => task.id !== id);
     saveData(this._tasks);
   }
 

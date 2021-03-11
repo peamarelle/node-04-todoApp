@@ -8,16 +8,23 @@ const getAllTasks = () => {
     return tasks;
 };
 
+const getChoices = () => {
+    const choices = taskRepository.getAllTasks().map((task) => {
+        return { value: task.id, name: task.title };
+    })
+    return choices;
+};
+
 const createTask = (title) => {
     taskRepository.createTask(title);
 }
 
-const deleteTask = (title) => {
-    taskRepository.deleteTask(title);
+const deleteTask = (id) => {
+    taskRepository.deleteTask(id);
 }
 
 const completeTask = (title) => {
     taskRepository.completeTask(title);
 }
 
-module.exports = { getAllTasks, createTask, deleteTask, completeTask };
+module.exports = { getAllTasks, createTask, deleteTask, completeTask, getChoices };
