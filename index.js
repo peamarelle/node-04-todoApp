@@ -1,5 +1,15 @@
-const { inquirerMenu, inquirerInput, inquirerSubMenu } = require("./helpers/inquirer");
-const { getAllTasks, createTask, deleteTask, completeTask, getChoices } = require("./services/taskService");
+const {
+  inquirerMenu,
+  inquirerInput,
+  inquirerSubMenu,
+} = require("./helpers/inquirer");
+const {
+  getAllTasks,
+  createTask,
+  deleteTask,
+  completeTask,
+  getChoices,
+} = require("./services/taskService");
 
 const main = async () => {
   let option = "";
@@ -8,7 +18,6 @@ const main = async () => {
     option = await inquirerMenu();
 
     switch (option) {
-
       case 1:
         const title = await inquirerInput("Task tile:");
         createTask(title);
@@ -20,18 +29,20 @@ const main = async () => {
         if (tasks.length !== 0) {
           console.table(tasks);
         } else {
-          console.log('There are not tasks!'.red);
+          console.log("There are not tasks!".red);
         }
         break;
 
       case 3:
-        const completedTask = await inquirerInput("Task tile:");
+        const options = getChoices();
+        const completedTask = await inquirerSubMenu(options, "complete");
+        console.log(completedTask);
         completeTask(completedTask);
         break;
 
       case 4:
         const choices = getChoices();
-        const task = await inquirerSubMenu(choices, 'delete');
+        const task = await inquirerSubMenu(choices, "delete");
         deleteTask(task);
         break;
     }

@@ -1,30 +1,41 @@
+const colors = require("colors");
 const TaskRepository = require("../repositories/taskRepository");
 const taskRepository = new TaskRepository();
 
 const getAllTasks = () => {
-    const tasks = taskRepository.getAllTasks().map((task) => {
-        return { title: task.title, done: task.done };
-    })
-    return tasks;
+  const tasks = taskRepository.getAllTasks().map((task) => {
+    if (task.done === true) {
+      return { title: task.title, done: "COMPLETED" };
+    }
+
+    return { title: task.title, done: "UNFINISHED" };
+  });
+  return tasks;
 };
 
 const getChoices = () => {
-    const choices = taskRepository.getAllTasks().map((task) => {
-        return { value: task.id, name: task.title };
-    })
-    return choices;
+  const choices = taskRepository.getAllTasks().map((task) => {
+    return { value: task.id, name: task.title };
+  });
+  return choices;
 };
 
 const createTask = (title) => {
-    taskRepository.createTask(title);
-}
+  taskRepository.createTask(title);
+};
 
 const deleteTask = (id) => {
-    taskRepository.deleteTask(id);
-}
+  taskRepository.deleteTask(id);
+};
 
-const completeTask = (title) => {
-    taskRepository.completeTask(title);
-}
+const completeTask = (id) => {
+  taskRepository.completeTask(id);
+};
 
-module.exports = { getAllTasks, createTask, deleteTask, completeTask, getChoices };
+module.exports = {
+  getAllTasks,
+  createTask,
+  deleteTask,
+  completeTask,
+  getChoices,
+};

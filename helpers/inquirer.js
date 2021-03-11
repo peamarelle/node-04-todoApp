@@ -65,7 +65,7 @@ const inquirerSubMenu = async (choices, action) => {
       type: "list",
       name: "option",
       message: `Select task to ${action}`,
-      choices
+      choices,
     },
   ];
 
@@ -77,5 +77,5 @@ const inquirerSubMenu = async (choices, action) => {
 module.exports = {
   inquirerMenu,
   inquirerInput,
-  inquirerSubMenu
+  inquirerSubMenu,
 };

@@ -34,9 +34,9 @@ class TaskRepository {
     saveData(this._tasks);
   }
 
-  completeTask(title) {
+  completeTask(id) {
     this._tasks.map((task) => {
-      if (task.title === title) {
+      if (task.id === id) {
         task.done = true;
         task.finished = new Date();
       }
