@@ -5,35 +5,6 @@ const inquirerMenu = async () => {
   console.log("===============================".blue);
   console.log("Select an option".white);
   console.log("===============================".blue);
-<<<<<<< HEAD
-
-  const menu = [
-    {
-      type: "list",
-      name: "option",
-      message: "What do you want to do?",
-      choices: [
-        {
-          value: 1,
-          name: `${"1-".blue} Create Task`,
-        },
-        {
-          value: 2,
-          name: `${"2-".blue} Get Tasks`,
-        },
-        {
-          value: 3,
-          name: `${"3-".blue} Complete Task`,
-        },
-        {
-          value: "X",
-          name: `${"0-".blue} Salir`,
-        },
-      ],
-    },
-  ];
-
-=======
 
   const menu = [
     {
@@ -65,7 +36,6 @@ const inquirerMenu = async () => {
     },
   ];
 
->>>>>>> cd84c79fa4ee2141aa8b0eac9082ab8427277b29
   const { option } = await inquirer.prompt(menu);
 
   return option;
@@ -81,10 +51,6 @@ const inquirerInput = async (message) => {
   ];
 
   const { description } = await inquirer.prompt(question);
-<<<<<<< HEAD
-
-  return description;
-=======
 
   return description;
 };
@@ -99,21 +65,17 @@ const inquirerSubMenu = async (choices, action) => {
       type: "list",
       name: "option",
       message: `Select task to ${action}`,
-      choices
+      choices,
     },
   ];
 
   const { option } = await inquirer.prompt(menu);
 
   return option;
->>>>>>> cd84c79fa4ee2141aa8b0eac9082ab8427277b29
 };
 
 module.exports = {
   inquirerMenu,
   inquirerInput,
-<<<<<<< HEAD
-=======
-  inquirerSubMenu
->>>>>>> cd84c79fa4ee2141aa8b0eac9082ab8427277b29
+  inquirerSubMenu,
 };

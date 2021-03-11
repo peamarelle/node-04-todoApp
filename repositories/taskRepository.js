@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-const Task = require("../models/task");
-=======
 const Task = require("../models/Task");
->>>>>>> cd84c79fa4ee2141aa8b0eac9082ab8427277b29
 const { getData, saveData } = require("../helpers/fileManager");
 
 class TaskRepository {
@@ -19,13 +15,7 @@ class TaskRepository {
   }
 
   getAllTasks() {
-<<<<<<< HEAD
-    return this._tasks.map((task) => {
-      return { title: task.title, done: task.done, finished: task.finished };
-    });
-=======
     return this._tasks;
->>>>>>> cd84c79fa4ee2141aa8b0eac9082ab8427277b29
   }
 
   /**
@@ -39,27 +29,19 @@ class TaskRepository {
     saveData(this._tasks);
   }
 
-<<<<<<< HEAD
-  deleteTask() {}
-=======
   deleteTask(id) {
     this._tasks = this._tasks.filter((task) => task.id !== id);
     saveData(this._tasks);
   }
->>>>>>> cd84c79fa4ee2141aa8b0eac9082ab8427277b29
 
-  completeTask(title) {
+  completeTask(id) {
     this._tasks.map((task) => {
-      if (task.title === title) {
+      if (task.id === id) {
         task.done = true;
         task.finished = new Date();
       }
     });
-<<<<<<< HEAD
-    saveData([this._tasks]);
-=======
     saveData(this._tasks);
->>>>>>> cd84c79fa4ee2141aa8b0eac9082ab8427277b29
   }
 }
 
