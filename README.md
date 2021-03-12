@@ -1,6 +1,6 @@
 # node-04-todoApp
 
-# HOW TO INSTALL
+# HOW TO INSTALL DEPENDENCES
 
 - Clone the repository
   `git clone https://github.com/VeraManuel/node-04-todoApp.git`
@@ -9,7 +9,7 @@
 - Run `npm install`
 - Run `node index`
 
-# LIBRARIES
+# PACKAGES
 
 - [UUID](https://www.npmjs.com/package/uuid) (To assign id to the tasks)
 - [Inquirer](https://www.npmjs.com/package/inquirer) (Core of the App to work it on the console)
@@ -40,3 +40,5 @@
 - Delete a task you don't want.
 
     <img src="public/img/deleteTask.PNG" />
+
+- After you run "node index"
