@@ -48,8 +48,6 @@ const main = async () => {
             completeTask(completedTask);
           }
           console.log("There are no tasks to complete!".red);
-        } else {
-          console.log("There are no tasks to complete!".red);
         }
 
         break;
