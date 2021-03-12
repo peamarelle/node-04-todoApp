@@ -5,17 +5,32 @@ const taskRepository = new TaskRepository();
 const getAllTasks = () => {
   const tasks = taskRepository.getAllTasks().map((task) => {
     if (task.done === true) {
-      return { title: task.title, done: "COMPLETED" };
+      return {
+        title: task.title,
+        done: "COMPLETED",
+        created: task.created,
+        finished: task.finished,
+      };
     }
 
-    return { title: task.title, done: "UNFINISHED" };
+    return { title: task.title, done: "UNFINISHED", created: task.created };
   });
   return tasks;
 };
 
 const getChoices = () => {
   const choices = taskRepository.getAllTasks().map((task) => {
-    return { value: task.id, name: task.title };
+    return { value: task.id, name: task.title, done: task.done };
+  });
+  return choices;
+};
+
+const getChoicesToComplete = () => {
+  const choices = taskRepository.getAllTasks().map((task) => {
+    if (task.done === false) {
+      return { value: task.id, name: task.title, done: task.done };
+    }
+    return;
   });
   return choices;
 };
@@ -38,4 +53,5 @@ module.exports = {
   deleteTask,
   completeTask,
   getChoices,
+  getChoicesToComplete,
 };

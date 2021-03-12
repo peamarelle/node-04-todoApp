@@ -1,5 +1,6 @@
 const Task = require("../models/Task");
 const { getData, saveData } = require("../helpers/fileManager");
+const getTodayDate = require("../helpers/dateFormat");
 
 class TaskRepository {
   _tasks = null;
@@ -38,7 +39,7 @@ class TaskRepository {
     this._tasks.map((task) => {
       if (task.id === id) {
         task.done = true;
-        task.finished = new Date();
+        task.finished = getTodayDate();
       }
     });
     saveData(this._tasks);
