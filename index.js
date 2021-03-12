@@ -9,6 +9,7 @@ const {
   deleteTask,
   completeTask,
   getChoices,
+  getChoicesToComplete,
 } = require("./services/taskService");
 
 const main = async () => {
@@ -34,16 +35,33 @@ const main = async () => {
         break;
 
       case 3:
-        const options = getChoices();
-        const completedTask = await inquirerSubMenu(options, "complete");
-        console.log(completedTask);
-        completeTask(completedTask);
+        const options = getChoicesToComplete();
+        if (options.length !== 0) {
+          const newChoices = options.filter((option) => {
+            if (typeof option === "object") {
+              let choices = option;
+              return choices;
+            }
+          });
+          if (newChoices.length !== 0) {
+            const completedTask = await inquirerSubMenu(newChoices, "complete");
+            completeTask(completedTask);
+          }
+          console.log("There are no tasks to complete!".red);
+        } else {
+          console.log("There are no tasks to complete!".red);
+        }
+
         break;
 
       case 4:
         const choices = getChoices();
-        const task = await inquirerSubMenu(choices, "delete");
-        deleteTask(task);
+        if (choices.length !== 0) {
+          const task = await inquirerSubMenu(choices, "delete");
+          deleteTask(task);
+        } else {
+          console.log("There are no tasks to delete!".red);
+        }
         break;
     }
   } while (option !== "X");
