@@ -27,7 +27,7 @@ const main = async () => {
       case 2:
         const tasks = getAllTasks();
 
-        if (tasks.length !== 0) {
+        if (tasks.length > 0) {
           console.table(tasks);
         } else {
           console.log("There are not tasks!".red);
@@ -36,25 +36,26 @@ const main = async () => {
 
       case 3:
         const options = getChoicesToComplete();
-        if (options.length !== 0) {
+        if (options.length > 0) {
           const newChoices = options.filter((option) => {
             if (typeof option === "object") {
               let choices = option;
               return choices;
             }
           });
-          if (newChoices.length !== 0) {
+          if (newChoices.length > 0) {
             const completedTask = await inquirerSubMenu(newChoices, "complete");
             completeTask(completedTask);
+          } else {
+            console.log("There are no tasks to complete!".red);
           }
-          console.log("There are no tasks to complete!".red);
         }
 
         break;
 
       case 4:
         const choices = getChoices();
-        if (choices.length !== 0) {
+        if (choices.length > 0) {
           const task = await inquirerSubMenu(choices, "delete");
           deleteTask(task);
         } else {

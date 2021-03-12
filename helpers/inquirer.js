@@ -30,7 +30,7 @@ const inquirerMenu = async () => {
         },
         {
           value: "X",
-          name: `${"0-".blue} Salir`,
+          name: `${"0-".blue} Exit`,
         },
       ],
     },
